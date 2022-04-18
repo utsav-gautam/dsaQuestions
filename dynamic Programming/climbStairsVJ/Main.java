@@ -13,6 +13,8 @@ public class Main {
         // int result=climbStairs(0,N,arr,dp);
         int result=climbStairs_tab(arr);
         System.out.println(result);
+
+        scn.close();
     }
     public static int climbStairs_tab(int[] arr){
         int[] dp=new int[arr.length+1];
