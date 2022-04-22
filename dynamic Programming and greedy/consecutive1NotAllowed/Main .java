@@ -9,7 +9,21 @@ class Solution {
         }
         
         return (dp[0][n-1]+dp[1][n-1])%1000000007;
+    } 
+
+
+    /* ----------------------------- using variables ---------------------------- */
+    long countStrings(int n) {
+        long endZero=1;
+        long endOne=1;
+        for(int i=1;i<n;i++){
+            long cZero=endZero%1000000007+endOne%1000000007;
+            long cOne=endZero%1000000007;
+            
+            endZero=cZero;
+            endOne=cOne;
+        }
+        
+        return (endZero+endOne)%1000000007;
     }
-    
-    
 }
