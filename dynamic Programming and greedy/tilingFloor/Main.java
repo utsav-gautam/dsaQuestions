@@ -36,4 +36,25 @@ public class Main {
 
     return (dp[n]);
   }
+
+  /* ------------------------ tiling MxN floor with Mx1 ----------------------- */
+   public static void main(String[] args) throws Exception {
+        Scanner scn= new Scanner(System.in);
+        int n=scn.nextInt();
+        int m=scn.nextInt();
+        
+        int ans=tiling(n,m);
+        System.out.println(ans);
+    }
+    
+    public static int tiling(int n,int m){
+        if(n<m)
+        return 1;
+        if(n==m)
+        return 2;
+        
+        int count=tiling(n-1,m)+tiling(n-m,m);
+        
+        return count;
+    }
 }
