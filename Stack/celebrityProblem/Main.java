@@ -44,4 +44,33 @@ public class Main {
         }
     }
 
+
+    /* -------------------------- using stack----------------------- */
+
+    public static void findCelebrity(int[][] arr) {
+        // if a celebrity is there print it''s index (not position), if there is not then print "none"
+        Stack < Integer > st = new Stack < > ();
+        for (int i = 0; i < arr.length; i++) {
+            st.push(i);
+        }
+
+        while(st.size()>1){
+            int v1=st.pop();
+            int v2=st.pop();
+
+            if(arr[v1][v2]==1)
+                st.push(v2);
+            else
+                st.push(v1);
+        }
+
+        for(int i=0;i<arr.length;i++){
+            if(arr[i][st.peek()]==0&&i!=st.peek()){
+                System.out.println("none");
+                return;
+            }
+        }
+
+        System.out.println(st.peek());
+    }
 }
